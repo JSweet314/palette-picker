@@ -1,0 +1,11 @@
+header {
+  padding: 1rem;
+  width: 100%;
+  background-color: slategray;
+}
+
+header h1 {
+  margin: 0;
+  font-size: 4rem;
+  text-align: center;
+}
