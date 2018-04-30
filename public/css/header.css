@@ -1,0 +1,13 @@
+header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background-color: slategray;
+}
+
+header h1 {
+  margin: 1rem 0;
+  font-size: 4rem;
+  text-align: center;
+}
