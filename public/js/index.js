@@ -31,16 +31,18 @@ const mapPalettesToHTML = palettes => {
     return HTML +
       `<div class="project-palette">
         <h5>${palette.name}</h5>
-        <div class='project-palette-color' style="background-color: ${palette["color-1"]}">
-        </div>
-        <div class='project-palette-color' style="background-color: ${palette["color-2"]}">
-        </div>
-        <div class='project-palette-color' style="background-color: ${palette["color-3"]}">
-        </div>
-        <div class='project-palette-color' style="background-color: ${palette["color-4"]}">
-        </div>
-        <div class='project-palette-color' style="background-color: ${palette["color-5"]}">
-        </div>
+        <div class="palette">
+          <div class='project-palette-color' style="background-color: ${palette["color-1"]}">
+          </div>
+          <div class='project-palette-color' style="background-color: ${palette["color-2"]}">
+          </div>
+          <div class='project-palette-color' style="background-color: ${palette["color-3"]}">
+          </div>
+          <div class='project-palette-color' style="background-color: ${palette["color-4"]}">
+          </div>
+          <div class='project-palette-color' style="background-color: ${palette["color-5"]}">
+          </div>
+        </div
       </div>`
   }, '');
 }

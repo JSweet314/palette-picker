@@ -1,8 +1,10 @@
 .palette-form {
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   justify-content: center;
   padding: 2rem 4rem;
+  background-color: lightcyan;
 }
 
 .palette-form select,
@@ -12,18 +14,25 @@
   font-family: 'Ubuntu', sans-serif;
 }
 
-.palette-form select,
-#generate-palette {
+.palette-form select {
   margin: 0 1rem 0 0;
 }
 
 #generate-palette {
-  box-shadow: 2px 2px darkgray;
+  box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
+  padding: 1rem; 
+  width: 100%;
+  margin: 0 20%;
+}
+
+#save-palette,
+#generate-palette {
   font-weight: 700;
 }
 
+#save-palette:hover,
 #generate-palette:hover {
-  background: radial-gradient(violet, indigo, blue, green, yellow, orange, red);
+  box-shadow: 1px 1px black;
+  background-color: #076437;
   color: white;
-  border: none;
 }

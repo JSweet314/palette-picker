@@ -10,9 +10,17 @@
     <title>Palette Picker</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Palette Picker</h1>
     </header>
+    <form class="palette-form">
+      <button id="generate-palette">NEW PALETTE</button>
+      <select name="projectName" id="select-project">
+        <option value="">Select Project</option>
+      </select>
+      <input placeholder="Palette name" type="text">
+      <button id="save-palette">SAVE</button>
+    </form>
     <div class="palette-container">
       <div class="color-panel color-1">
         <button class="lock-color" data-key="0"></button>
@@ -35,14 +43,6 @@
         <p class="color-title" data-key="4"></p>
       </div>
     </div>
-    <form class="palette-form">
-      <button id="generate-palette">NEW PALETTE</button>
-      <select name="projectName" id="select-project">
-        <option value="">Select Project</option>
-      </select>
-      <input placeholder="Palette name" type="text">
-      <button id="save-palette">SAVE</button>
-    </form>
     <section class="projects">
       <form class="project-form">
         <input placeholder="New project name" type="text">

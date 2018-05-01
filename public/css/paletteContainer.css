@@ -1,5 +1,4 @@
 .palette-container {
-  align-items: center;
   display: flex;
   justify-content: space-evenly;
   padding: 2rem;
@@ -35,6 +34,7 @@
   align-items: center;
   height: 30rem;
   width: 15%;
+  box-shadow: 2px 2px rgba(0,0,0,0.5);
 }
 
 .color-title {
