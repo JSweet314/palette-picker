@@ -1,0 +1,29 @@
+.palette-form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem 4rem;
+}
+
+.palette-form select,
+.palette-form input,
+.palette-form button {
+  font-size: 2rem;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.palette-form select,
+#generate-palette {
+  margin: 0 1rem 0 0;
+}
+
+#generate-palette {
+  box-shadow: 2px 2px darkgray;
+  font-weight: 700;
+}
+
+#generate-palette:hover {
+  background: radial-gradient(violet, indigo, blue, green, yellow, orange, red);
+  color: white;
+  border: none;
+}
