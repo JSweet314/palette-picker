@@ -17,7 +17,10 @@ app.get('/api/v1/palettes', (request, response) => {
 
 app.post('/api/v1/palettes', (request, response) => {
   const palette = request.body;
-  for (let requiredParam of ['name', 'color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'projectId']) {
+  for (
+    let requiredParam of 
+    ['name', 'color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'projectId']
+  ) {
     if (!palette[requiredParam]) {
       return response.status(422)
         .send({ error: `Missing required ${requiredParam} property.`});
@@ -37,10 +40,7 @@ app.get('/api/v1/projects', (request, response) => {
 
 app.post('/api/v1/projects', (request, response) => {
   const project = request.body;
-  if (!project.projectName) {
-    return response.status(422)
-      .send({ error: `Missing project name parameter` });
-  }
+  console.log({project});
   database('projects').insert(project, 'id')
     .then(project => response.status(201).json({ id: project[0] }))
     .catch(error => response.status(500).json({ error }));

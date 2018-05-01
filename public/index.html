@@ -15,23 +15,23 @@
     </header>
     <div class="palette-container">
       <div class="color-panel color-1">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="0"></button>
       </div>
       <div class="color-panel color-2">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="1"></button>
       </div>
       <div class="color-panel color-3">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="2"></button>
       </div>
       <div class="color-panel color-4">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="3"></button>
       </div>
       <div class="color-panel color-5">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="4"></button>
       </div>
     </div>
     <form class="palette-form">
-      <button>GENERATE COLOR PALETTE</button>
+      <button id="generate-palette">GENERATE COLOR PALETTE</button>
       <select name="" id=""></select>
       <input placeholder="Palette name" type="text">
       <button>Save Palette</button>
@@ -41,6 +41,6 @@
       <button>Save Project</button>
     </form>
     <section class="projects"></section>
-    <script src="js/scripts.js"></script>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

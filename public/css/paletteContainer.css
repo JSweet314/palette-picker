@@ -12,9 +12,14 @@
   width: 4rem;
   margin: 1rem;
   background-image: url('../images/unlocked.svg');
-  background-size: 2rem 2rem;
+  background-size: 3rem 3rem;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.lock-color.locked {
+  background-image: url('../images/locked.svg');
+  background-color: #fff;
 }
 
 .color-panel {
@@ -22,7 +27,6 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: blue;
   height: 30rem;
   width: 15%;
 }
