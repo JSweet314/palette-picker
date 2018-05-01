@@ -4,28 +4,30 @@ const palettePicker = new PalettePicker();
 
 const setPalette = () => {
   const palette = palettePicker.currentPalette;
-  for (let i = 1; i <= 5; i++) {
-    $(`.color-${i}`).css('background-color', palette.colors[i - 1].hex);
-    const color = $(`.color-${i}`).css('background-color');
-  }
+  const $colorPanels = $('.color-panel');
+  $colorPanels.each(function (index) {
+    $(this).css('background-color', palette.colors[index].hex);
+    $(this).find('.color-title').text(palette.colors[index].hex);
+  });
 }
 
-const updateMainPalette = (event) => {
+const updateCurrentPalette = event => {
   event.preventDefault();
   palettePicker.currentPalette.updateColors();
   const palette = palettePicker.currentPalette;
-  for (let i = 1; i <= 5; i++) {
-    const colorPanel = $(`.color-${i}`)
-    colorPanel.css('background-color', palette.colors[i-1].hex);
-  }
+  const $colorPanels = $('.color-panel');
+  $colorPanels.each(function (index) {
+    $(this).css('background-color', palette.colors[index].hex);
+    $(this).find('.color-title').text(palette.colors[index].hex);
+  });
 };
 
-$('button#generate-palette').on('click', updateMainPalette);
-
-$('.lock-color').on('click', (event) => {
+const handleLockClick = event => {
   const { key } = event.target.dataset;
   $(event.target).toggleClass('locked');
   palettePicker.currentPalette.toggleColorLock(key);
-});
+}
 
 $(window).on('load', setPalette);
+$('button#generate-palette').on('click', updateCurrentPalette);
+$('.lock-color').on('click', handleLockClick);
