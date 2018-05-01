@@ -2,10 +2,11 @@ import Color from './Color';
 
 export default class Palette {
   constructor(colorArray) {
-    this.colors = colorArray || this.generatePalette();
+    this.colors = colorArray || this.generateColors();
+    this.name = '';
   }
 
-  generatePalette() {
+  generateColors() {
     const palette = [];
     while (palette.length < 5) {
       const color = new Color();
@@ -31,10 +32,6 @@ export default class Palette {
   }
 
   toggleColorLock(hex) {
-    this.colors.forEach(color => {
-      if (color.hex === hex) {
-        color.toggleLock();
-      }
-    });
+    this.colors.find(color => color.hex === hex).toggleLock();
   }
 }
