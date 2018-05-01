@@ -1,7 +1,7 @@
 export default class Color {
   constructor() {
-    this.color = this.randomColorGenerator();
-    this.locked = true;
+    this.hex = this.randomColorGenerator();
+    this.locked = false;
   };
 
   toggleLock() {
@@ -16,5 +16,14 @@ export default class Color {
       color += characters[randomIndex];
     }
     return color;
+  }
+
+  updateColor() {
+    let isSameColor;
+    do {
+      const color = this.randomColorGenerator();
+      isSameColor = color === this.hex;
+      this.hex = color;
+    } while (isSameColor);
   }
 }
