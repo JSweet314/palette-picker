@@ -17,3 +17,27 @@ body {
 html {
   font-size: 62.5%;
 }
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32rem;
+}
+
+.project-palette {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.project-palette h5 {
+  margin: 0 1rem;
+}
+
+.project-palette-color {
+  height: 3rem;
+  width: 3rem;
+  border: 1px solid black;
+}
