@@ -11,11 +11,6 @@
   border-top: 1px solid black;
 }
 
-.project h4 {
-  font-size: 2rem;
-  margin: 0 0 1rem 0;
-}
-
 .project-form {
   display: flex;
   flex-direction: column;
@@ -36,29 +31,30 @@
 
 .project-palette .palette {
   display: flex;
+  flex-direction: column;
 }
 
 .project-palette h5 {
   font-size: 1.5rem;
   margin: 0;
+  display: inline;
 }
 
-.delete-palette,
 .project-palette-color {
-  height: 4rem;
-  width: 4rem;
   border: 1px solid black;
 }
 
 .delete-palette {
+  height: 3rem;
+  width: 3rem;
   border: none;
   background: rgba(0, 0, 0, 0) url('../images/delete.svg') no-repeat center;
-  background-size: 3rem 3rem;
+  background-size: 2rem 2rem;
 }
 
 .delete-palette:hover {
   background: rgba(0, 0, 0, 0) url('../images/delete-red.svg') no-repeat center;
-  background-size: 3rem 3rem;
+  background-size: 2rem 2rem;
 }
 
 .project-error {
@@ -67,4 +63,36 @@
   text-align: center;
   font-size: 1.5rem;
   color: red;
+}
+
+.project-palette-title {
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  display: inline-block;
+  padding: 1rem;
+  margin: 0;
+  font-size: 1.5rem;
+  width: 10rem;
+}
+
+.project-title {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-project {
+  display: inline-block;
+  font-size: 2rem;
+  text-align: left;
+  border: none;
+  background: rgba(0, 0, 0, 0) url('../images/down-arrow.svg') no-repeat;
+  background-position: center right 2rem;
+  background-size: 2rem 2rem;
+}
+
+.number-palettes {
+background-color: rgba(0, 0, 0, 0.5);
+padding: 0.5rem 1rem;
+color: white;
+margin: 0 1rem 0 0;
 }

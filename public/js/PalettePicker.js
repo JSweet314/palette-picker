@@ -62,6 +62,7 @@ export default class PalettePicker {
       });
       if (response.ok) {
         this.palettes = await this.getPalettes();
+        return response.ok;
       }
     } catch (error) {
       throw new Error(`Post palette error, ${error.message}`);
@@ -83,5 +84,14 @@ export default class PalettePicker {
     } catch (error) {
       throw new Error(`Delete palette error, ${error.message}`);
     }
+  }
+
+  packageColorsForProject() {
+    return this.currentPalette.colors
+      .map(color => color.hex)
+      .reduce((palette, color, index) => {
+        palette[`color-${index + 1}`] = color;
+        return palette;
+      }, {});
   }
 }
