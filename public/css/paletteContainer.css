@@ -1,20 +1,29 @@
 .palette-container {
   display: flex;
   justify-content: space-evenly;
-  align-items: center;
-  margin: 1rem 0;
+  padding: 2rem;
 }
 
 .lock-color {
-  background-color: rgba(256, 256, 256, 0.5);
+  background-color: rgba(256, 256, 256, 0.2);
   border: none;
+  border-radius: 15%;
   height: 4rem;
   width: 4rem;
   margin: 1rem;
   background-image: url('../images/unlocked.svg');
-  background-size: 2rem 2rem;
+  background-size: 3rem 3rem;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.lock-color:hover {
+   background-color: rgba(256, 256, 256, 0.8);
+}
+
+.lock-color.locked {
+  background-image: url('../images/locked.svg');
+  background-color: rgba(256, 256, 256, 0.8);
 }
 
 .color-panel {
@@ -22,7 +31,14 @@
   flex-direction: column;
   justify-content: flex-end;
   align-items: center;
-  background-color: blue;
   height: 30rem;
   width: 15%;
+  box-shadow: 2px 2px rgba(0,0,0,0.5);
+}
+
+.color-title {
+  font-size: 2rem;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 1rem;
 }

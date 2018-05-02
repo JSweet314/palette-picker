@@ -1,0 +1,57 @@
+.projects {
+  background-color: lightgray;
+  overflow: scroll;
+}
+
+.project {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 1rem;
+  border-top: 1px solid black;
+}
+
+.project h4 {
+  font-size: 2rem;
+  margin: 0 0 1rem 0;
+}
+
+.project-form {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.project-form input,
+.project-form button {
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.project-palette {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.project-palette .palette {
+  display: flex;
+}
+
+.project-palette h5 {
+  font-size: 1.5rem;
+  margin: 0;
+}
+
+.project-palette-color {
+  height: 5rem;
+  width: 5rem;
+  border: 1px solid black;
+}
+
+.project-error {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
+}

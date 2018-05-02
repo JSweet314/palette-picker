@@ -10,37 +10,47 @@
     <title>Palette Picker</title>
   </head>
   <body>
-    <header>
+    <header class="header">
       <h1>Palette Picker</h1>
     </header>
+    <form class="palette-form">
+      <button id="generate-palette">NEW PALETTE</button>
+      <select name="projectName" id="select-project">
+        <option value="">Select Project</option>
+      </select>
+      <input placeholder="Palette name" type="text">
+      <button id="save-palette">SAVE</button>
+      <p class="palette-error"></p>
+    </form>
     <div class="palette-container">
       <div class="color-panel color-1">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="0"></button>
+        <p class="color-title" data-key="0"></p>
       </div>
       <div class="color-panel color-2">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="1"></button>
+        <p class="color-title" data-key="1"></p>
       </div>
       <div class="color-panel color-3">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="2"></button>
+        <p class="color-title" data-key="2"></p>
       </div>
       <div class="color-panel color-4">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="3"></button>
+        <p class="color-title" data-key="3"></p>
       </div>
       <div class="color-panel color-5">
-        <button class="lock-color"></button>
+        <button class="lock-color" data-key="4"></button>
+        <p class="color-title" data-key="4"></p>
       </div>
     </div>
-    <form class="palette-form">
-      <button>GENERATE COLOR PALETTE</button>
-      <select name="" id=""></select>
-      <input placeholder="Palette name" type="text">
-      <button>Save Palette</button>
-    </form>
-    <form class="project-form">
-      <input placeholder="New project name" type="text">
-      <button>Save Project</button>
-    </form>
-    <section class="projects"></section>
-    <script src="js/scripts.js"></script>
+    <section class="projects">
+      <form class="project-form">
+        <input id="project-name" placeholder="New project name" type="text">
+        <p class="project-error"></p>
+        <button id="save-project">New Project</button>
+      </form>
+    </section>
+    <script type="module" src="./js/index.js"></script>
   </body>
 </html>

@@ -23,10 +23,9 @@ describe('Palette', () => {
     expect(palette.colors[1].hex).not.to.equal(unlockedColor);
   });
 
-  it('should be able to toggle a color lock by its hex color', () => {
-    const { hex } = palette.colors[0];
-    expect(palette.colors[0].locked).to.be.false;
-    palette.toggleColorLock(hex);
-    expect(palette.colors[0].locked).to.be.true;
+  it('should be able to toggle a color lock by its index position', () => {
+    expect(palette.colors[3].locked).to.be.false;
+    palette.toggleColorLock(3);
+    expect(palette.colors[3].locked).to.be.true;
   });
 });

@@ -1,4 +1,4 @@
-import Color from './Color';
+import Color from './Color.js';
 
 export default class Palette {
   constructor(colorArray) {
@@ -31,7 +31,7 @@ export default class Palette {
     });
   }
 
-  toggleColorLock(hex) {
-    this.colors.find(color => color.hex === hex).toggleLock();
+  toggleColorLock(key) {
+    this.colors[key].toggleLock();
   }
 }

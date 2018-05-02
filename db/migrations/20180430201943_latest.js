@@ -14,8 +14,8 @@ exports.up = function(knex, Promise) {
       table.string('color-3');
       table.string('color-4');
       table.string('color-5');
-      table.integer('projectId')
-      table.foreign('projectId').references('projects.id')
+      table.integer('projectId');
+      table.foreign('projectId').references('projects.id');
       table.timestamps(true, true);
     })
   ]); 
