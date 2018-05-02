@@ -27,7 +27,7 @@ a, button, select {
 body {
   display: grid;
   grid-template-rows: 10% 20% 70%;
-  grid-template-columns: 20% 80%;
+  grid-template-columns: 32rem auto;
 }
 
 .header {

@@ -43,13 +43,26 @@
   margin: 0;
 }
 
+.delete-palette,
 .project-palette-color {
-  height: 5rem;
-  width: 5rem;
+  height: 4rem;
+  width: 4rem;
   border: 1px solid black;
 }
 
+.delete-palette {
+  border: none;
+  background: rgba(0, 0, 0, 0) url('../images/delete.svg') no-repeat center;
+  background-size: 3rem 3rem;
+}
+
+.delete-palette:hover {
+  background: rgba(0, 0, 0, 0) url('../images/delete-red.svg') no-repeat center;
+  background-size: 3rem 3rem;
+}
+
 .project-error {
+  position: relative;
   margin: 0;
   text-align: center;
   font-size: 1.5rem;
