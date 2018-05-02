@@ -30,19 +30,26 @@ const mapPalettesToHTML = palettes => {
   return palettes.reduce((HTML, palette) => {
     return HTML +
       `<div class="project-palette">
-        <h5>${palette.name}</h5>
+        <div class="project-title">
+          <h5>${palette.name}</h5>
+          <button class="delete-palette" data-id=${palette.id}></button>
+        </div>
         <div class="palette">
           <div class='project-palette-color' style="background-color: ${palette["color-1"]}">
+            <p class="project-palette-title">${palette["color-1"]}</p>
           </div>
           <div class='project-palette-color' style="background-color: ${palette["color-2"]}">
+            <p class="project-palette-title">${palette["color-2"]}</p>
           </div>
           <div class='project-palette-color' style="background-color: ${palette["color-3"]}">
+            <p class="project-palette-title">${palette["color-3"]}</p>
           </div>
           <div class='project-palette-color' style="background-color: ${palette["color-4"]}">
+            <p class="project-palette-title">${palette["color-4"]}</p>
           </div>
           <div class='project-palette-color' style="background-color: ${palette["color-5"]}">
-          </div>
-          <button class="delete-palette" data-id=${palette.id}></button>
+            <p class="project-palette-title">${palette["color-5"]}</p>
+          </div> 
         </div
       </div>`
   }, '');
