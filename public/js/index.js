@@ -6,6 +6,7 @@ const $saveProjectBtn = $('#save-project');
 const $savePaletteBtn = $('button#save-palette');
 const $generatePaletteBtn = $('button#generate-palette');
 const $paletteNameInput = $('.palette-form input');
+const $projectToggleBtn = $('.toggle-project');
 const $projects = $('.projects');
 const $selectProject = $('#select-project');
 
@@ -23,10 +24,14 @@ const mapProjectToHTML = async project => {
   const { projectName, id } = project;
   const palettes = await palettePicker.palettes
   const matchingPalettes = palettes.filter(palette => palette.projectId === id);
+  const numberOfPalettes = matchingPalettes.length;
   const paletteHTML = await mapPalettesToHTML(matchingPalettes);
   return `
     <article class="project">
-      <h4>${projectName}</h4>
+      <button class="toggle-project">
+      <span class="number-palettes">${numberOfPalettes}</span>
+      ${projectName}
+      </button>
       ${paletteHTML}
     </article>`;
 }
@@ -34,7 +39,7 @@ const mapProjectToHTML = async project => {
 const mapPalettesToHTML = palettes => {
   return palettes.reduce((HTML, palette) => {
     return HTML +
-      `<div class="project-palette">
+      `<div class="project-palette" style="display: none">
         <div class="project-title">
           <h5>${palette.name}</h5>
           <button class="delete-palette" data-id=${palette.id}></button>
@@ -126,7 +131,8 @@ const handleSavePalette =  event => {
     $('.palette-error').text('You must pick a project and name your palette');
     return;
   }
-  postNewPalette(name, projectName);
+  postNewPalette(name, projectName)
+  $paletteNameInput.val('');
 }
 
 const handleSaveProject = async event => {
@@ -153,6 +159,9 @@ const handleDeletePalette = async event => {
   await setProjects();
 }
 
+const toggleProjectView = event => 
+  $(event.target).next('.project-palette').toggle()
+
 const initializeApp = () => {
   setPalette();
   setProjects();
@@ -169,3 +178,5 @@ $savePaletteBtn.on('click', handleSavePalette);
 $saveProjectBtn.on('click', handleSaveProject);
 
 $projects.on('click', '.delete-palette', handleDeletePalette);
+
+$projects.on('click', '.toggle-project', toggleProjectView);
