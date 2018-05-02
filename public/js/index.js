@@ -42,6 +42,7 @@ const mapPalettesToHTML = palettes => {
           </div>
           <div class='project-palette-color' style="background-color: ${palette["color-5"]}">
           </div>
+          <button class="delete-palette" data-id=${palette.id}></button>
         </div
       </div>`
   }, '');
@@ -55,7 +56,7 @@ const setProjects = async () => {
     const {projectName, id} = project
     const projectHTML = await mapProjectToHTML(project);
     $projects.append(projectHTML);
-    $selectProject.append(`<option class="project-name" value=${projectName} data-key=${id}>${projectName}</option>`);
+    $selectProject.append(`<option class="project-name" value="${projectName}" data-key=${id}>${projectName}</option>`);
   });
 }
 
@@ -84,6 +85,7 @@ const handleSavePalette = async event => {
   event.preventDefault();
   const name = $paletteNameInput.val();
   const projectName = $selectProject.val();
+  console.log(projectName)
   if (!projectName) {
     $('.palette-error').text('You must select/create a project');
     return;
@@ -109,7 +111,7 @@ const handleSaveProject = async event => {
   event.preventDefault();
   const name = $('#project-name').val();
   const projects = await palettePicker.projects;
-  const alreadyExists = projects.some(project => project.projectName === name);
+  const alreadyExists = projects.some(project => project.projectName.toLowerCase() === name.toLowerCase());
   if (!alreadyExists) {
     const response = await palettePicker.postProject({ projectName: name });
     $('.project-error').text('');
@@ -131,3 +133,10 @@ $lockColorBtn.on('click', handleLockClick);
 $savePaletteBtn.on('click', handleSavePalette);
 
 $saveProjectBtn.on('click', handleSaveProject);
+
+$projects.on('click', '.delete-palette', async event => {
+  const id = event.target.dataset;
+  await palettePicker.deletePalette(id);
+  await setProjects();
+  
+});

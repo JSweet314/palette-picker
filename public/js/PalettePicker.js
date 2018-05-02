@@ -59,13 +59,29 @@ export default class PalettePicker {
         headers: {
           'Content-Type': 'application/json'
         }
-      })
+      });
       if (response.ok) {
-        const thing = await response.json();
         this.palettes = await this.getPalettes();
       }
     } catch (error) {
-      console.log({error});
+      throw new Error(`Post palette error, ${error.message}`);
+    }
+  }
+
+  async deletePalette(paletteId) {
+    try {
+      const response = await fetch('http://localhost:3000/api/v1/palettes', {
+        method: 'DELETE',
+        body: JSON.stringify(paletteId),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      if (response.ok) {
+        this.palettes = await this.getPalettes();
+      }
+    } catch (error) {
+      throw new Error(`Delete palette error, ${error.message}`);
     }
   }
 }

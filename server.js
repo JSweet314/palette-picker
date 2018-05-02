@@ -15,15 +15,21 @@ app.get('/api/v1/palettes', (request, response) => {
     .catch(error => response.status(500).json({ error }));
 });
 
+app.get('/api/v1/projects', (request, response) => {
+  database('projects').select()
+    .then(projects => response.status(200).json(projects))
+    .catch(error => response.status(500).json({ error }));
+})
+
 app.post('/api/v1/palettes', (request, response) => {
   const palette = request.body;
   for (
-    let requiredParam of 
+    let requiredParam of
     ['name', 'color-1', 'color-2', 'color-3', 'color-4', 'color-5', 'projectId']
   ) {
     if (!palette[requiredParam]) {
       return response.status(422)
-        .send({ error: `Missing required ${requiredParam} property.`});
+        .send({ error: `Missing required ${requiredParam} property.` });
     }
   }
 
@@ -32,20 +38,26 @@ app.post('/api/v1/palettes', (request, response) => {
     .catch(error => response.status(500).json({ error }));
 });
 
-app.get('/api/v1/projects', (request, response) => {
-  database('projects').select()
-    .then(projects => response.status(200).json(projects))
-    .catch(error => response.status(500).json({ error }));
-})
-
 app.post('/api/v1/projects', (request, response) => {
   const project = request.body;
   if (!project.projectName) {
-    console.log(project);
-    return 'baloney';
+    return response.status(422)
+      .send({ error: 'Post Error: Missing required projectName' });
   }
   database('projects').insert(project, 'id')
     .then(project => response.status(201).json({ id: project[0] }))
+    .catch(error => response.status(500).json({ error }));
+});
+
+app.delete('/api/v1/palettes', (request, response) => {
+  const palette = request.body;
+  if (!palette.id) {
+    return response.status(422)
+      .send({ error: 'Delete Error: Missing required id' });
+  }
+  const { id } = palette;
+  database('palettes').where({ id }).del()
+    .then(() => response.status(200).json({ message: `Deleted ${palette.id}` }))
     .catch(error => response.status(500).json({ error }));
 });
 
