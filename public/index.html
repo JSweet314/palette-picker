@@ -20,6 +20,7 @@
       </select>
       <input placeholder="Palette name" type="text">
       <button id="save-palette">SAVE</button>
+      <p class="palette-error"></p>
     </form>
     <div class="palette-container">
       <div class="color-panel color-1">
@@ -45,8 +46,9 @@
     </div>
     <section class="projects">
       <form class="project-form">
-        <input placeholder="New project name" type="text">
-        <button>Save Project</button>
+        <input id="project-name" placeholder="New project name" type="text">
+        <p class="project-error"></p>
+        <button id="save-project">New Project</button>
       </form>
     </section>
     <script type="module" src="./js/index.js"></script>

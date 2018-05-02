@@ -37,17 +37,35 @@ export default class PalettePicker {
       const response = await fetch('http://localhost:3000/api/v1/projects', {
         method: 'POST',
         body: JSON.stringify(project),
-        header: {
+        headers: {
           'Content-Type': 'application/json'
         }
       })
       if (response.ok) {
         const { id } = await response.json();
-        this.projects = this.getProjects();
+        this.projects = await this.getProjects();
         return id;
       }
     } catch (error) {
       this.error = error;
+    }
+  }
+
+  async postPalette(palette) {
+    try {
+      const response = await fetch('http://localhost:3000/api/v1/palettes', {
+        method: 'POST',
+        body: JSON.stringify(palette),
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      })
+      if (response.ok) {
+        const thing = await response.json();
+        this.palettes = await this.getPalettes();
+      }
+    } catch (error) {
+      console.log({error});
     }
   }
 }

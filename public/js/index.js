@@ -2,6 +2,7 @@ import PalettePicker from './PalettePicker.js';
 
 const $colorPanels = $('.color-panel');
 const $lockColorBtn = $('.lock-color');
+const $saveProjectBtn = $('#save-project');
 const $savePaletteBtn = $('button#save-palette');
 const $generatePaletteBtn = $('button#generate-palette');
 const $paletteNameInput = $('.palette-form input');
@@ -21,8 +22,7 @@ const mapProjectToHTML = async project => {
   const { projectName, id } = project;
   const palettes = await palettePicker.palettes
   const matchingPalettes = palettes.filter(palette => palette.projectId === id);
-  const paletteHTML = mapPalettesToHTML(matchingPalettes);
-
+  const paletteHTML = await mapPalettesToHTML(matchingPalettes);
   return `<article class="project"><h4>${projectName}</h4>${paletteHTML}</article>`;
 }
 
@@ -48,12 +48,14 @@ const mapPalettesToHTML = palettes => {
 }
 
 const setProjects = async () => {
+  $('.project').remove();
+  $('option.project-name').remove();
   const projects = await palettePicker.projects;
   projects.forEach(async project => {
-    const {projectName} = project
+    const {projectName, id} = project
     const projectHTML = await mapProjectToHTML(project);
     $projects.append(projectHTML);
-    $selectProject.append(`<option value=${projectName}>${projectName}</option>`);
+    $selectProject.append(`<option class="project-name" value=${projectName} data-key=${id}>${projectName}</option>`);
   });
 }
 
@@ -78,7 +80,54 @@ const initializeApp = () => {
   setProjects();
 };
 
+const handleSavePalette = async event => {
+  event.preventDefault();
+  const name = $paletteNameInput.val();
+  const projectName = $selectProject.val();
+  if (!projectName) {
+    $('.palette-error').text('You must select/create a project');
+    return;
+  }
+  const projects = await palettePicker.projects;
+  const project = await projects.find(project => project.projectName === projectName)
+  const projectId = project.id;
+  const colors = palettePicker.currentPalette.colors.map(color => color.hex)
+    .reduce((palette, color, index) => {
+      palette[`color-${index + 1}`] = color;
+      return palette;
+    }, {});
+    const palette = {...colors, projectId, name};
+    const validation = await palettePicker.postPalette(palette);
+    if (!validation) {
+      $('.palette-error').text('Something went wrong, please try again');
+    }
+    $('.palette-error').text('');
+    await setProjects();
+}
+
+const handleSaveProject = async event => {
+  event.preventDefault();
+  const name = $('#project-name').val();
+  const projects = await palettePicker.projects;
+  const alreadyExists = projects.some(project => project.projectName === name);
+  if (!alreadyExists) {
+    const response = await palettePicker.postProject({ projectName: name });
+    $('.project-error').text('');
+    $('#project-name').val('');
+    if (response) {
+      setProjects();
+    }
+  } else {
+    $('.project-error').text('Name already taken');
+  }
+}
+
 $(window).on('load', initializeApp);
+
 $generatePaletteBtn.on('click', updateCurrentPalette);
+
 $lockColorBtn.on('click', handleLockClick);
-$savePaletteBtn.on('click', )
+
+$savePaletteBtn.on('click', handleSavePalette);
+
+$saveProjectBtn.on('click', handleSaveProject);

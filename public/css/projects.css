@@ -1,8 +1,14 @@
+.projects {
+  background-color: lightgray;
+  overflow: scroll;
+}
+
 .project {
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 1rem;
+  border-top: 1px solid black;
 }
 
 .project h4 {
@@ -41,4 +47,11 @@
   height: 5rem;
   width: 5rem;
   border: 1px solid black;
+}
+
+.project-error {
+  margin: 0;
+  text-align: center;
+  font-size: 1.5rem;
+  color: red;
 }

@@ -4,7 +4,6 @@
   flex-wrap: wrap;
   justify-content: center;
   padding: 2rem 4rem;
-  background-color: lightcyan;
 }
 
 .palette-form select,
@@ -35,4 +34,12 @@
   box-shadow: 1px 1px black;
   background-color: #076437;
   color: white;
+}
+
+.palette-error {
+  width: 100%;
+  text-align: center;
+  color: red;
+  font-size: 1.5rem;
+  margin: 0;
 }
