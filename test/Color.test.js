@@ -17,7 +17,7 @@ describe('Color', () => {
     expect(color.randomColorGenerator()[0]).to.equal('#');
   });
 
-  it('should have a propery locked, which can be toggled', () => {
+  it('should have a property locked, which can be toggled', () => {
     expect(color.locked).to.be.false;
     color.toggleLock();
     expect(color.locked).to.be.true;
