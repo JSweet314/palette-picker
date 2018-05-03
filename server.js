@@ -29,7 +29,9 @@ app.post('/api/v1/palettes', (request, response) => {
   ) {
     if (!palette[requiredParam]) {
       return response.status(422)
-        .send({ error: `Missing required ${requiredParam} property.` });
+        .send({ 
+          error: `Post Error: Missing required ${requiredParam} property.` 
+        });
     }
   }
 
@@ -64,3 +66,5 @@ app.delete('/api/v1/palettes', (request, response) => {
 app.listen(app.get('port'), () => {
   console.log(`Palette Picker server running on ${app.get('port')}.`);
 });
+
+module.exports = {app, database};
