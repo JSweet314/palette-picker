@@ -1,7 +1,7 @@
 import Palette from './Palette.js';
 
 export default class PalettePicker {
-  constructor() {
+  constructor(url) {
     this.palettes = this.getPalettes();
     this.projects = this.getProjects();
     this.currentPalette = new Palette();
@@ -10,7 +10,7 @@ export default class PalettePicker {
 
   async getPalettes() {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/palettes');
+      const response = await fetch('/api/v1/palettes');
       if (response.ok) {
         const palettes = await response.json();
         return palettes;
@@ -22,7 +22,7 @@ export default class PalettePicker {
 
   async getProjects() {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/projects');
+      const response = await fetch('/api/v1/projects');
       if (response.ok) {
         const projects = await response.json();
         return projects;
@@ -34,7 +34,7 @@ export default class PalettePicker {
 
   async postProject(project) {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/projects', {
+      const response = await fetch('/api/v1/projects', {
         method: 'POST',
         body: JSON.stringify(project),
         headers: {
@@ -53,7 +53,7 @@ export default class PalettePicker {
 
   async postPalette(palette) {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/palettes', {
+      const response = await fetch('/api/v1/palettes', {
         method: 'POST',
         body: JSON.stringify(palette),
         headers: {
@@ -71,7 +71,7 @@ export default class PalettePicker {
 
   async deletePalette(paletteId) {
     try {
-      const response = await fetch('http://localhost:3000/api/v1/palettes', {
+      const response = await fetch('/api/v1/palettes', {
         method: 'DELETE',
         body: JSON.stringify(paletteId),
         headers: {
@@ -93,9 +93,5 @@ export default class PalettePicker {
         palette[`color-${index + 1}`] = color;
         return palette;
       }, {});
-  }
-
-  setPalleteColors(colorArray) {
-    
   }
 }
