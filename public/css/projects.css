@@ -63,7 +63,7 @@
 }
 
 .project-error {
-  position: relative;
+  visibility: hidden;
   margin: 0;
   text-align: center;
   font-size: 1.5rem;

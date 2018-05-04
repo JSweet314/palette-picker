@@ -118,7 +118,6 @@ const postNewPalette = async (name, projectName) => {
   if (!validation) {
     $('.palette-error').text('Something went wrong, please try again');
   } else {
-    $('.palette-error').text('');
     await setProjects();
   }
 }
@@ -128,11 +127,12 @@ const handleSavePalette =  event => {
   const name = $paletteNameInput.val();
   const projectName = $selectProject.val();
   if (!projectName || !name) {
-    $('.palette-error').text('You must pick a project and name your palette.');
+    $('.palette-error').css('visibility', 'visible');
     return;
   }
   postNewPalette(name, projectName)
   $paletteNameInput.val('');
+  $('.palette-error').css('visibility', 'hidden');
 }
 
 const handleSaveProject = async event => {
@@ -143,13 +143,13 @@ const handleSaveProject = async event => {
     project.projectName.toLowerCase() === name.toLowerCase());
   if (!alreadyExists && name) {
     const response = await palettePicker.postProject({ projectName: name });
-    $('.project-error').text('');
+    $('.project-error').css('visibility', 'hidden');
     $('#project-name').val('');
     if (response) {
       setProjects();
     }
   } else {
-    $('.project-error').text('Please create a unique name.');
+    $('.project-error').css('visibility', 'visible');
   }
 }
 
