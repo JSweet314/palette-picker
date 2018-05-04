@@ -1,12 +1,15 @@
 .palette-form {
   display: flex;
   flex-direction: column;
-  padding: 8rem 4rem;
+  justify-content: center;
+  align-items: center;
+  padding: 0 4rem;
 }
 
 .palette-form select,
 .palette-form input,
 .palette-form button {
+  width: 100%;
   margin: 0 0 2rem 0;
   font-size: 2rem;
   font-family: 'Ubuntu', sans-serif;
@@ -14,7 +17,8 @@
 
 .palette-prompt {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  padding: 0 6rem 0 2rem;
   align-items: center
 }
 
@@ -30,7 +34,6 @@
 }
 
 #generate-palette {
-  box-shadow: 2px 2px rgba(0, 0, 0, 0.5);
   padding: 1rem;
   font-size: 3rem;
   font-family: 'Ubuntu', sans-serif;
@@ -49,9 +52,10 @@
 }
 
 .palette-error {
-  width: 20rem;
+  visibility: hidden;
   text-align: center;
   color: red;
   font-size: 1.5rem;
-  margin: 0 2rem;
+  width: 20rem;
 }
+
