@@ -1,56 +1,61 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <title>Palette Picker</title>
-  </head>
-  <body>
-    <header class="header">
-      <h1>Palette Picker</h1>
-    </header>
-    <form class="palette-form">
-      <button id="generate-palette">NEW PALETTE</button>
+<head>
+  <link href="https://fonts.googleapis.com/css?family=Ubuntu:400,700" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" media="screen" href="css/styles.css" />
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <title>Palette Picker</title>
+</head>
+<body>
+  <header class="header">
+    <h1>Palette Picker</h1>
+    <p>Create a project and find the right palette for you!</p>
+  </header>
+    <div class="palette-prompt">
+      <p>Click the <img src="images/unlocked.svg" alt=""> to hold your favorite colors!</p>
+      <button id="generate-palette">GENERATE NEW PALETTE</button>
+    </div>
+  <div class="palette-container">
+    <div class="color-panel color-1">
+      <button class="lock-color" data-key="0"></button>
+      <p class="color-title" data-key="0"></p>
+    </div>
+    <div class="color-panel color-2">
+      <button class="lock-color" data-key="1"></button>
+      <p class="color-title" data-key="1"></p>
+    </div>
+    <div class="color-panel color-3">
+      <button class="lock-color" data-key="2"></button>
+      <p class="color-title" data-key="2"></p>
+    </div>
+    <div class="color-panel color-4">
+      <button class="lock-color" data-key="3"></button>
+      <p class="color-title" data-key="3"></p>
+    </div>
+    <div class="color-panel color-5">
+      <button class="lock-color" data-key="4"></button>
+      <p class="color-title" data-key="4"></p>
+    </div>
+    <div class="palette-form">
       <select name="projectName" id="select-project">
         <option value="">Select Project</option>
       </select>
       <input placeholder="Palette name" type="text">
       <button id="save-palette">SAVE</button>
       <p class="palette-error"></p>
-    </form>
-    <div class="palette-container">
-      <div class="color-panel color-1">
-        <button class="lock-color" data-key="0"></button>
-        <p class="color-title" data-key="0"></p>
-      </div>
-      <div class="color-panel color-2">
-        <button class="lock-color" data-key="1"></button>
-        <p class="color-title" data-key="1"></p>
-      </div>
-      <div class="color-panel color-3">
-        <button class="lock-color" data-key="2"></button>
-        <p class="color-title" data-key="2"></p>
-      </div>
-      <div class="color-panel color-4">
-        <button class="lock-color" data-key="3"></button>
-        <p class="color-title" data-key="3"></p>
-      </div>
-      <div class="color-panel color-5">
-        <button class="lock-color" data-key="4"></button>
-        <p class="color-title" data-key="4"></p>
-      </div>
     </div>
-    <section class="projects">
-      <form class="project-form">
-        <input id="project-name" placeholder="New project name" type="text">
-        <p class="project-error"></p>
-        <button id="save-project">New Project</button>
-      </form>
-    </section>
-    <script type="module" src="./js/index.js"></script>
-  </body>
+  </div>
+  <section class="projects">
+    <form class="project-form">
+      <input id="project-name" placeholder="New project name" type="text">
+      <p class="project-error"></p>
+      <button id="save-project">Create Project</button>
+    </form>
+    <button class="show">show/hide all</button>
+  </section>
+  <script type="module" src="./js/index.js"></script>
+</body>
 </html>

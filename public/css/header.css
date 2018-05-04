@@ -1,14 +1,17 @@
 header {
   display: flex;
-  justify-content: center;
   align-items: center;
-  background: radial-gradient(darkblue, lightblue);
+  justify-content: space-between;
+  background-color: #f6fa04;
+  border-bottom: 1px solid black;
 }
 
 header h1 {
-  margin: 0;
+  margin: 0 0 0 2rem;
   font-size: 4rem;
-  text-align: center;
-  color: white;
-  text-shadow: 2px 2px black;
+}
+
+header p {
+ font-size: 2rem;
+ margin: 0 8rem 0 0; 
 }
