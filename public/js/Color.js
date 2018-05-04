@@ -1,6 +1,6 @@
 export default class Color {
-  constructor() {
-    this.hex = this.randomColorGenerator();
+  constructor(color) {
+    this.hex = color || this.randomColorGenerator();
     this.locked = false;
   };
 

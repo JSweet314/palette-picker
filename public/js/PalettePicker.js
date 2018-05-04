@@ -94,4 +94,8 @@ export default class PalettePicker {
         return palette;
       }, {});
   }
+
+  setPalleteColors(colorArray) {
+    
+  }
 }

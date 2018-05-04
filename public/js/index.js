@@ -39,9 +39,9 @@ const mapProjectToHTML = async project => {
 const mapPalettesToHTML = palettes => {
   return palettes.reduce((HTML, palette) => {
     return HTML +
-      `<div class="project-palette" style="display: none">
-        <div class="project-title">
-          <h5>${palette.name}</h5>
+      `<div class="project-palette" style="display: none" data-palette=${palette}>
+        <div class="project-title-group">
+          <h5 class="project-title">${palette.name}</h5>
           <button class="delete-palette" data-id=${palette.id}></button>
         </div>
         <div class="palette">
@@ -167,6 +167,15 @@ const initializeApp = () => {
   setProjects();
 };
 
+const displayProjectPalette = event => {
+  const colors = [];
+  $(event.target).parents('.project-palette')
+    .find('.project-palette-title')
+    .each((index, element) => colors.push(element.textContent));
+  palettePicker.currentPalette.setExistingColors(colors);
+  setPalette();
+} 
+
 $(window).on('load', initializeApp);
 
 $generatePaletteBtn.on('click', updateCurrentPalette);
@@ -180,3 +189,7 @@ $saveProjectBtn.on('click', handleSaveProject);
 $projects.on('click', '.delete-palette', handleDeletePalette);
 
 $projects.on('click', '.toggle-project', toggleProjectView);
+
+$projects.on('click', '.project-title', displayProjectPalette);
+
+$projects.on('click', '.palette', displayProjectPalette);
