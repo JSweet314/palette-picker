@@ -39,7 +39,7 @@ const mapProjectToHTML = async project => {
 const mapPalettesToHTML = palettes => {
   return palettes.reduce((HTML, palette) => {
     return HTML +
-      `<div class="project-palette" style="display: none" data-palette=${palette}>
+      `<div class="project-palette">
         <div class="project-title-group">
           <h5 class="project-title">${palette.name}</h5>
           <button class="delete-palette" data-id=${palette.id}></button>
@@ -160,7 +160,8 @@ const handleDeletePalette = async event => {
 }
 
 const toggleProjectView = event => 
-  $(event.target).next('.project-palette').toggle()
+  $(event.target).parents('.project').find('.project-palette')
+    .each(((index, element) => {$(element).toggle()}))
 
 const initializeApp = () => {
   setPalette();
@@ -193,3 +194,7 @@ $projects.on('click', '.toggle-project', toggleProjectView);
 $projects.on('click', '.project-title', displayProjectPalette);
 
 $projects.on('click', '.palette', displayProjectPalette);
+
+$('.show').on('click', () => {
+  $('.project-palette')
+    .each((index, element) => { $(element).toggle() })})
