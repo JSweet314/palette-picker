@@ -128,7 +128,7 @@ const handleSavePalette =  event => {
   const name = $paletteNameInput.val();
   const projectName = $selectProject.val();
   if (!projectName || !name) {
-    $('.palette-error').text('You must pick a project and name your palette');
+    $('.palette-error').text('You must pick a project and name your palette.');
     return;
   }
   postNewPalette(name, projectName)
@@ -141,7 +141,7 @@ const handleSaveProject = async event => {
   const projects = await palettePicker.projects;
   const alreadyExists = projects.some(project =>
     project.projectName.toLowerCase() === name.toLowerCase());
-  if (!alreadyExists) {
+  if (!alreadyExists && name) {
     const response = await palettePicker.postProject({ projectName: name });
     $('.project-error').text('');
     $('#project-name').val('');
@@ -149,7 +149,7 @@ const handleSaveProject = async event => {
       setProjects();
     }
   } else {
-    $('.project-error').text('Name already taken');
+    $('.project-error').text('Please create a unique name.');
   }
 }
 
