@@ -1,8 +1,8 @@
 import Color from './Color.js';
 
 export default class Palette {
-  constructor(colorArray) {
-    this.colors = colorArray || this.generateColors();
+  constructor() {
+    this.colors = this.generateColors();
     this.name = '';
   }
 
@@ -33,5 +33,9 @@ export default class Palette {
 
   toggleColorLock(key) {
     this.colors[key].toggleLock();
+  }
+
+  setExistingColors(colorArray) {
+    this.colors = colorArray.map(color => new Color(color));
   }
 }

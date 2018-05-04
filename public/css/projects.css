@@ -75,9 +75,10 @@
   width: 10rem;
 }
 
-.project-title {
+.project-title-group {
   display: flex;
   align-items: center;
+  margin: 0.5rem 0 0 0;
 }
 
 .toggle-project {
