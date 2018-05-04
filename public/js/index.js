@@ -9,6 +9,7 @@ const $paletteNameInput = $('.palette-form input');
 const $projectToggleBtn = $('.toggle-project');
 const $projects = $('.projects');
 const $selectProject = $('#select-project');
+const $toggleAllProjectsDisplayBtn = $('.show');
 
 const palettePicker = new PalettePicker();
 
@@ -177,6 +178,9 @@ const displayProjectPalette = event => {
   setPalette();
 } 
 
+const toggleAllProjectsDisplay = () => 
+  $('.project-palette').each((index, element) => { $(element).toggle() })
+
 $(window).on('load', initializeApp);
 
 $generatePaletteBtn.on('click', updateCurrentPalette);
@@ -195,6 +199,4 @@ $projects.on('click', '.project-title', displayProjectPalette);
 
 $projects.on('click', '.palette', displayProjectPalette);
 
-$('.show').on('click', () => {
-  $('.project-palette')
-    .each((index, element) => { $(element).toggle() })})
+$toggleAllProjectsDisplayBtn.on('click', toggleAllProjectsDisplay)
