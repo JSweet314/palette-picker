@@ -9,4 +9,4 @@ deploy:
   app: palettepicker-js
   on:
     repo: JSweet314/palette-picker
-skip-cleanup: true
+  skip-cleanup: true

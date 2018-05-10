@@ -4,6 +4,7 @@ header {
   justify-content: space-between;
   background-color: #076437;
   border-bottom: 1px solid black;
+  color: white;
 }
 
 header h1 {
