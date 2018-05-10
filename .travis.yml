@@ -1,4 +1,8 @@
 language: node_js
-node_js: "node"
-services: "postgresql"
-before_script: "psql -c 'create database palettepicker_test;' -U postgres"
+node_js: node
+services: postgresql
+before_script: psql -c 'create database palettepicker_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: A6TwpQHS1FSXvrEOS6Ji6HNK2lW4zksaHaJmM0+0FQMjv5fdvGRoJMHKMky+XrBRx3EOgoCz3fPEw8XG1emZ214kREcO9rGc2G9wG1z3/SybGykQ7hULTGzPlJLxDSYbSwxAdRQ+jxwjm1GbtaNmPFNa3BhKVptIg76IWC7OSrLPBB1IIJW6RfHuLv0sOaXkZomc8yLC54GjFgcSxLqZBskzEXh6P9eDO9fmXf/w1S0UqLIbYysjYz7/gjFMBMx0yhiQ+9fP9/A3hjBh1/7GAjUTv7XazY3XrKvQnxdSCdsxztQsHzdf+rilrjXLD0QfPlHpVvu0NhGZrXghWEswotmTIWAcdFSVGpfM7bm6WQqnIMsVazK/YcTzbLiIZM9OUQwcLNukSxdng0t0Tp70DV07mub1YTodIse4UVMEU61ltSWhxO6LlaDlN/yInc3EPX7qIbCSAZTquCLgpKLRs35QPDuToaIFd13+VYQx/4n5PyP0qW1Bbd/WtgRrVmLvIecOdSFim1/QuS+daP0L331pgoyrabphA2CqGCPS9eO+flINXHSQHA4kvS8IjCnLnebkY4CNFw8nfDk/rPST/xfDkj8OIqp1VU00VZlx789LGdibY9cP8SMZSDIfeZqvb5+qOErvq3nvj0Id7+6E5A0OsMIGmw6+p2zWfzFJfF0=
