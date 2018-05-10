@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/JSweet314/palette-picker.svg?branch=master)](https://travis-ci.com/JSweet314/palette-picker)
+
 # Palette Picker
 ## Author:  Jonathan Sweet - [Github @*JSweet314*](https://github.com/jsweet314)
 ### View this project [live on heroku](https://palettepicker-js.herokuapp.com)
@@ -6,17 +8,17 @@ A simple application for generating and saving project color palettes. The front
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 ### Prerequisites
 
-Node and postgresql can be installed with [homebrew](http://brew.sh) if needed. 
+Node and postgresql can be installed with [homebrew](http://brew.sh) if needed.
 
 ```
 /* postgreSQL */
 brew install postgresql
 /* node.js */
-brew install node 
+brew install node
 ```
 
 ### Installing
