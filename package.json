@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "start": "node server.js",
     "test": "NODE_ENV=test mocha --require babel-polyfill --require babel-register --exit"
   },
   "keywords": [],
