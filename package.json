@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test": "NODE_ENV=test mocha --require babel-polyfill --require babel-register --exit"
+    "test": "NODE_ENV=test mocha --require babel-polyfill --require babel-register --exit",
+    "lint": "./node_modules/.bin/eslint public/*.js"
   },
   "keywords": [],
   "author": "",
@@ -24,6 +25,7 @@
     "babel-preset-es2015": "^6.24.1",
     "chai": "^4.1.2",
     "chai-http": "^4.0.0",
+    "eslint": "^4.19.1",
     "mocha": "^5.1.1"
   }
 }
